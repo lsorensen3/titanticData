@@ -10,7 +10,9 @@ public class TitanicResearch{
 
     System.out.println(ticketPrice("Allison, Master. Hudson Trevor")); //should be 151.5500
 
-    System.out.println(survival("Allison, Miss. Helen Loraine")); //true (1)
+    System.out.println(survival("Allison, Miss. Helen Loraine")); //false (0)
+
+    System.out.println(findGender("Aubart, Mme. Leontine Pauline")); //female
 
   }
 
@@ -141,12 +143,41 @@ public class TitanicResearch{
 
   }
 
-/*
-  public static String findGender(String name){
+
+  public static String findGender(String name) throws FileNotFoundException{
     //iterate through each data line to find gender of person
     //while loop to find name, return F for female, M for male
+    File f = new File("titanic3.csv");
+    ArrayList<ArrayList<String>> dataSet = allData(f);
+
+    name = "\"" + name + "\"";
+    int nameIndex = findIndex("name");
+    int genderIndex = findIndex("sex");
+
+    String currentName = "";
+
+    String sex = "";
+    String tempSex = "";
+
+    for(int row = 0; row < dataSet.size(); row++){
+      //saves the name of the row currently looking at
+      currentName = dataSet.get(row).get(nameIndex);
+
+      if(currentName.equals(name)){
+        sex = dataSet.get(row).get(genderIndex);
+        //removes quotes around the sex of the person
+        tempSex = sex.substring(1);
+        sex = tempSex.substring(0, tempSex.length()-1);
+        return sex;
+      }
+    }
+
+    return sex;
+
 
   }
+
+/*
 
   public static int findAge(String name){
     //iterate through each data line to find the age of each person
