@@ -68,7 +68,7 @@ public class TitanicResearch{
   }
 
 
-  public static String ticketPrice(String name) throws FileNotFoundException{
+  public static double ticketPrice(String name) throws FileNotFoundException{
     //iterate through each data line to find price of ticket using name
     //use a while loop (while next is true) to iterate through names
     //once find an exact name, find and return the price of the ticket
@@ -76,18 +76,27 @@ public class TitanicResearch{
     File f = new File("titanic3.csv");
     ArrayList<ArrayList<String>> dataSet = allData(f);
 
+    //find indexes of name and fare for this person
     int nameIndex = findIndex("name");
     int priceIndex = findIndex("fare");
 
+    //add quotes to find so it can match setup of csv data
     name = "\"" + name + "\"";
 
+    //holder variables
     String currentName = "";
-    String price = "0.0";
+    String holdDouble = "";
+    double price = 0.0;
 
+    //loop to iterate through names to find price of person's ticket
     for(int row = 0; row < dataSet.size(); row++){
+      //saves the name of the row currently looking at
       currentName = dataSet.get(row).get(nameIndex);
+      
       if(currentName.equals(name)){
-        price = dataSet.get(row).get(priceIndex);
+        //changes price (since currently a String) to a double
+        holdDouble = dataSet.get(row).get(priceIndex);
+        price = Double.parseDouble(holdDouble);
         return price;
       }
     }
