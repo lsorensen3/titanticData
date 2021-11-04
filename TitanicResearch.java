@@ -10,6 +10,8 @@ public class TitanicResearch{
 
     System.out.println(ticketPrice("Allison, Master. Hudson Trevor")); //should be 151.5500
 
+    System.out.println(survival("Allison, Miss. Helen Loraine")); //true (1)
+
   }
 
   public static ArrayList<ArrayList<String>> allData(File pathname) throws FileNotFoundException{
@@ -92,7 +94,7 @@ public class TitanicResearch{
     for(int row = 0; row < dataSet.size(); row++){
       //saves the name of the row currently looking at
       currentName = dataSet.get(row).get(nameIndex);
-      
+
       if(currentName.equals(name)){
         //changes price (since currently a String) to a double
         holdDouble = dataSet.get(row).get(priceIndex);
@@ -103,14 +105,43 @@ public class TitanicResearch{
 
     return price;
   }
-/*
-  public static boolean survival(String name){
+
+
+
+  public static boolean survival(String name) throws FileNotFoundException{
     //iterate through each data line to find if the person survived
     //while loop to find name of passenger, return true or false for survival
+    File f = new File("titanic3.csv");
+    ArrayList<ArrayList<String>> dataSet = allData(f);
 
+    name = "\"" + name + "\"";
+    int nameIndex = findIndex("name");
+    int surviveIndex = findIndex("survived");
+
+    String currentName = "";
+
+    boolean survive = false;
+    int binarySurvive = 0;
+
+    for(int row = 0; row < dataSet.size(); row++){
+      //saves the name of the row currently looking at
+      currentName = dataSet.get(row).get(nameIndex);
+
+      if(currentName.equals(name)){
+        binarySurvive = Integer.valueOf(dataSet.get(row).get(surviveIndex));
+        if(binarySurvive ==1){
+          return true;
+        } else {
+          return false;
+        }
+      }
+    }
+
+    return survive;
 
   }
 
+/*
   public static String findGender(String name){
     //iterate through each data line to find gender of person
     //while loop to find name, return F for female, M for male
