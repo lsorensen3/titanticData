@@ -2,10 +2,13 @@ import java.util.*;
 import java.io.*;
 
 public class TitanicResearch{
-
   public static void main(String[] args) throws FileNotFoundException{
     File f = new File("titanic3.csv");
     allData(f);
+
+    System.out.println(findIndex("name"));
+
+    System.out.println(ticketPrice("Allison, Master. Hudson Trevor")); //should be 151.5500
 
   }
 
@@ -40,15 +43,58 @@ public class TitanicResearch{
 
   }
 
-/*
-  public static double ticketPrice(String name){
+  public static int findIndex(String find) throws FileNotFoundException{
+    //method that finds index of certain key (in case order of key list changes, will always have correct spot)
+    File f = new File("titanic3.csv");
+    ArrayList<ArrayList<String>> dataSet = allData(f);
+
+    //changes the find String to include quotes (because csv Strings for data have quotes)
+    String tempFind = find;
+    find = "\"" + find + "\"";
+
+    String temp = "";
+
+    //for loop that iterates through ArrayList[0] to find matching key to what looking for
+    for(int i = 0; i < dataSet.get(0).size(); i++){
+      temp = dataSet.get(0).get(i);
+      //if key is the same as what looking for, return the index of the key
+      if(temp.equals(find)){
+        return i;
+      }
+    }
+
+    //return -1 if the key was not found
+    return -1;
+  }
+
+
+  public static String ticketPrice(String name) throws FileNotFoundException{
     //iterate through each data line to find price of ticket using name
     //use a while loop (while next is true) to iterate through names
     //once find an exact name, find and return the price of the ticket
-    //price is
 
+    File f = new File("titanic3.csv");
+    ArrayList<ArrayList<String>> dataSet = allData(f);
+
+    int nameIndex = findIndex("name");
+    int priceIndex = findIndex("fare");
+
+    name = "\"" + name + "\"";
+
+    String currentName = "";
+    String price = "0.0";
+
+    for(int row = 0; row < dataSet.size(); row++){
+      currentName = dataSet.get(row).get(nameIndex);
+      if(currentName.equals(name)){
+        price = dataSet.get(row).get(priceIndex);
+        return price;
+      }
+    }
+
+    return price;
   }
-
+/*
   public static boolean survival(String name){
     //iterate through each data line to find if the person survived
     //while loop to find name of passenger, return true or false for survival
