@@ -14,6 +14,8 @@ public class TitanicResearch{
 
     System.out.println(findGender("Aubart, Mme. Leontine Pauline")); //female
 
+    System.out.println(findAge("Allison, Master. Hudson Trevor")); //0.92
+
   }
 
   public static ArrayList<ArrayList<String>> allData(File pathname) throws FileNotFoundException{
@@ -173,18 +175,43 @@ public class TitanicResearch{
     }
 
     return sex;
-
-
   }
 
-/*
 
-  public static int findAge(String name){
+
+  public static double findAge(String name) throws FileNotFoundException{
     //iterate through each data line to find the age of each person
     //find name, return age
+    File f = new File("titanic3.csv");
+    ArrayList<ArrayList<String>> dataSet = allData(f);
+
+    name = "\"" + name + "\"";
+    int nameIndex = findIndex("name");
+    int ageIndex = findIndex("age");
+
+    String currentName = "";
+
+    String stringAge = "";
+    double age = 0;
+
+    for(int row = 0; row < dataSet.size(); row++){
+      //saves the name of the row currently looking at
+      currentName = dataSet.get(row).get(nameIndex);
+
+      if(currentName.equals(name)){
+        stringAge = dataSet.get(row).get(ageIndex);
+        age = Double.parseDouble(stringAge);
+        return age;
+      }
+    }
+
+    return age;
+
 
   }
 
+
+/*
   public static double mostExpensiveTicketSurvival(){
     //method that finds the people with the most expensive tickets and sees if they survived
     //split up by top half of expensive and bottom half and compare? or maybe top, middle, bottom and compare
