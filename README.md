@@ -28,7 +28,7 @@ The questions that I attempted to answer with my code were the following:
 
     * The biggest challenge that I faced was figuring out a way to get all of the csv data in an ArrayList to optimize readability and simplify the means of obtaining said data. I was originally going to use the ```.split()``` method in order to turn each line of my csv into an array, but since some of my data tokens had necessary commas in them, the ```.split()``` method on its own would not work. I then tried to put all of the information into an ArrayList using a while loop, but this proved difficult since each line of a csv has a hidden ```\n``` at the end (since it goes on to the next line). I presented my difficulties to my teacher, who then showed me a line of code that would work around this issue: ```String.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");``` Including this specific parameter for the split method fixed my issue and allowed me to put all the csv data in an ArrayList.
 
-    * Another major challenge in answering my questions was dealing with empty elements in the data ArrayList. While this may seem like a minor issue, it was fairly time consuming to debug as it took a long time to figure out what the real issue was. Once I found out why my code wasn't working, I just needed to include a simple if/else statement that disregarded lines in the dataset that did not include a real value for the specific token.
+    * Another major challenge in answering my questions was dealing with empty elements in the data ArrayList. While this may seem like a minor issue, it was fairly time consuming to debug as it took a long time to figure out what the real issue was. Once I found out why my code wasn't working, I just needed to include a simple if/else statement that disregarded the lines in the dataset (which was actually an ```ArrayList<ArrayList<String>>```) that did not include a real value for the specific token.
 
 ## Results and Conclusion
 
@@ -40,7 +40,5 @@ The questions that I attempted to answer with my code were the following:
 
 
 2. What are some related or additional questions that you would like to explore granted more time/resources?
-
-    * If I had more time, I would like to further my research on possible trends between wealth and survival aboard the Titanic. I believe that it is more likely for more people who paid more for their tickets to have survived than those who paid less, but I would need to do further research in order to determine this.
 
     * Another question that I would like to answer would be to look at passenger families, and how many people per family present on the Titanic survived. A subquestion of this would be to find the percentage of families that lost each member during the sinking. The data set has information for number of sibling/spouses aboard (sibsp), and number of children/parents aboard (parch). It would be interesting to see the comparison between familial death, which would lead to more questions. For instance, was the family death due to not wanting to be separated? Did more children survive than parents, displaying a possible trend in which parents saved their children rather than themselves? I believe that these questions would be extremely interesting to further research, and would have definitely looked into it had I been granted more time with the project.
