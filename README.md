@@ -22,7 +22,7 @@ The questions that I attempted to answer with my code were the following:
     ```
     findIndex(String find)
     ```
-    . The find index method has a String parameter that takes in the key (ex. age, name, etc.). The method returns the index in the ArrayList of data that would have the information. This method was not necessary since the order of my data set will not change, but it is important to include for the what-if scenarios and to ensure full coverage. I found that some of the other helper methods I created, such as findName and findGender, were not necessary for my code.
+    The find index method has a String parameter that takes in the key (ex. age, name, etc.). The method returns the index in the ArrayList of data that would have the information. This method was not necessary since the order of my data set will not change, but it is important to include for the what-if scenarios and to ensure full coverage. I found that some of the other helper methods I created, such as findName and findGender, were not necessary for my code.
 
 3. Challenges:
 
