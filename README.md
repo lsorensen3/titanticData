@@ -4,8 +4,8 @@
 ## Introduction
 
 Here is my introduction. include source of data here (where/who/if have legal permission to use)
-1. I have always been fascinated with history, the Titanic included. I was excited when I found this data source on the list and knew that it would be a great option to study (my other final choice was fossils, once again, history). I somewhat assumed the general answers to my questions, but I thought it would be fun to test myself by coding the ___ to find the exact answers.
-2. The questions that I attempted to answer with my code were:
+I have always been fascinated with history, the Titanic included. I was excited when I found this data source on the list and knew that it would be a great option to study (my other final choice was fossils, once again, history). I somewhat assumed the general answers to my questions, but I thought it would be fun to test myself by coding the ___ to find the exact answers.
+The questions that I attempted to answer with my code were:
   1. Is there a trend between ticket fare and survival? If so, what are the different survival rates for more expensive tickets vs. less expensive tickets?
   2. Is there a trend between gender and survival? If so, what are the exact survival rates of female vs. male?
 
