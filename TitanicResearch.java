@@ -6,6 +6,7 @@ public class TitanicResearch{
     File f = new File("titanic3.csv");
     allData(f);
 
+    //testing methods:
     System.out.println(findIndex("name"));
 
     System.out.println(ticketPrice("Allison, Master. Hudson Trevor")); //should be 151.5500
@@ -15,6 +16,12 @@ public class TitanicResearch{
     System.out.println(findGender("Aubart, Mme. Leontine Pauline")); //female
 
     System.out.println(findAge("Allison, Master. Hudson Trevor")); //0.92
+
+    System.out.println(findHighestPrice()); //should be 512.3292
+
+    System.out.println(findLowestPrice()); //should be 0.0
+
+    System.out.println(mostExpensiveTicketSurvival());
 
   }
 
@@ -48,6 +55,7 @@ public class TitanicResearch{
     return takeAllData;
 
   }
+
 
   public static int findIndex(String find) throws FileNotFoundException{
     //method that finds index of certain key (in case order of key list changes, will always have correct spot)
@@ -111,6 +119,66 @@ public class TitanicResearch{
   }
 
 
+  public static double findLowestPrice() throws FileNotFoundException{
+    File f = new File("titanic3.csv");
+    ArrayList<ArrayList<String>> dataSet = allData(f);
+
+    int priceIndex = findIndex("fare");
+
+    //holder variables
+    String price = "";
+    double currentPrice = 0.0;
+    double lowestPrice = 100.0;
+
+    //loop to iterate through names to find price of person's ticket
+    for(int row = 1; row < dataSet.size(); row++){
+      //saves current price from String to double
+      price = dataSet.get(row).get(priceIndex);
+      if(price == ""){
+        continue;
+      }
+      currentPrice = Double.parseDouble(price);
+      if(currentPrice < lowestPrice){
+        lowestPrice = currentPrice;
+      }
+    }
+
+    return lowestPrice;
+
+  }
+
+
+
+  public static double findHighestPrice() throws FileNotFoundException{
+    File f = new File("titanic3.csv");
+    ArrayList<ArrayList<String>> dataSet = allData(f);
+
+    int priceIndex = findIndex("fare");
+
+    //holder variables
+    String price = "";
+    double currentPrice = 0.0;
+    double highestPrice = 0.0;
+
+    //loop to iterate through names to find price of person's ticket
+    for(int row = 1; row < dataSet.size(); row++){
+      //saves current price from String to double
+      price = dataSet.get(row).get(priceIndex);
+      if(price == ""){
+        continue;
+      }
+      currentPrice = Double.parseDouble(price);
+      if(currentPrice > highestPrice){
+        highestPrice = currentPrice;
+      }
+    }
+
+    return highestPrice;
+
+  }
+
+
+
 
   public static boolean survival(String name) throws FileNotFoundException{
     //iterate through each data line to find if the person survived
@@ -118,21 +186,26 @@ public class TitanicResearch{
     File f = new File("titanic3.csv");
     ArrayList<ArrayList<String>> dataSet = allData(f);
 
+    //save indexes of name and survival, add quotes around name
     name = "\"" + name + "\"";
     int nameIndex = findIndex("name");
     int surviveIndex = findIndex("survived");
 
     String currentName = "";
 
+    //holder variables
     boolean survive = false;
     int binarySurvive = 0;
 
+    //loop that finds whether the person survived or not
     for(int row = 0; row < dataSet.size(); row++){
       //saves the name of the row currently looking at
       currentName = dataSet.get(row).get(nameIndex);
 
       if(currentName.equals(name)){
+        //saves survival as int (since in binary on csv)
         binarySurvive = Integer.valueOf(dataSet.get(row).get(surviveIndex));
+        //changes binary to true/false (easier to read and matches boolean return)
         if(binarySurvive ==1){
           return true;
         } else {
@@ -142,7 +215,6 @@ public class TitanicResearch{
     }
 
     return survive;
-
   }
 
 
@@ -152,12 +224,13 @@ public class TitanicResearch{
     File f = new File("titanic3.csv");
     ArrayList<ArrayList<String>> dataSet = allData(f);
 
+    //save indexes of name and gender, add quotes around name
     name = "\"" + name + "\"";
     int nameIndex = findIndex("name");
     int genderIndex = findIndex("sex");
 
+    //holder variables
     String currentName = "";
-
     String sex = "";
     String tempSex = "";
 
@@ -182,6 +255,7 @@ public class TitanicResearch{
   public static double findAge(String name) throws FileNotFoundException{
     //iterate through each data line to find the age of each person
     //find name, return age
+    //return is a double because one of the passengers is less than a year old (need double or will be 0yo)
     File f = new File("titanic3.csv");
     ArrayList<ArrayList<String>> dataSet = allData(f);
 
@@ -199,6 +273,7 @@ public class TitanicResearch{
       currentName = dataSet.get(row).get(nameIndex);
 
       if(currentName.equals(name)){
+        //turns String age to a double for the age (double returned)
         stringAge = dataSet.get(row).get(ageIndex);
         age = Double.parseDouble(stringAge);
         return age;
@@ -206,21 +281,85 @@ public class TitanicResearch{
     }
 
     return age;
+  }
 
 
+
+  public static String mostExpensiveTicketSurvival() throws FileNotFoundException{
+    //method that finds the people with the most expensive tickets and sees if they survived
+    //split up by top half of expensive and bottom half and compare? or maybe top, middle, bottom and compare
+
+    //find highest and lowest ticket price and split halves by that
+    //have counter variables for lower and upper halves, add by boolean values and then divide
+    //also have counter variables for all upper and lower
+    File f = new File("titanic3.csv");
+    ArrayList<ArrayList<String>> dataSet = allData(f);
+    int priceIndex = findIndex("fare");
+    int surviveIndex = findIndex("survived");
+
+    double middle = (findLowestPrice() + findHighestPrice()) /2;
+    String currentPriceString = "";
+    double currentPrice = 0.0;
+
+    String currentSurviveString = "";
+    double currentSurvive = 0.0;
+
+    int highTotal = 0;
+    int lowTotal = 0;
+    double highSurvive = 0.0;
+    double lowSurvive = 0.0;
+
+    for(int row = 1; row < dataSet.size(); row++){
+      //saves the name of the row currently looking at
+      currentPriceString = dataSet.get(row).get(priceIndex);
+
+      //if the price is empty, move on
+      if(currentPriceString == "" ){
+        continue;
+      }
+
+      currentPrice = Double.parseDouble(currentPriceString);
+
+      //if price is equal to middle, disregard in count
+      if(currentPrice == middle){
+        continue;
+      }
+
+      //if the price is high, increase highTotal and increase highSurvive (if true)
+      if(currentPrice > middle){
+        highTotal ++;
+        currentSurviveString = dataSet.get(row).get(surviveIndex);
+        currentSurvive = Integer.valueOf(currentSurviveString);
+
+        if(currentSurvive == 1){
+          highSurvive++;
+        } else {}
+
+      //if the price is low, increase lowTotal and increase lowSurvive (if true)
+      } else{
+        lowTotal++;
+        currentSurvive = Integer.valueOf(dataSet.get(row).get(surviveIndex));
+
+        if(currentSurvive == 1){
+          lowSurvive++;
+        } else{}
+      }
+
+    }
+
+    double highAverage = (highSurvive/highTotal) * 100.0;
+    double lowAverage = (lowSurvive/lowTotal) * 100.0;
+
+    String ret = "More expensive tickets have a survival rate of " + highAverage + "%, ";
+    ret = ret + "while less expensive tickets have a survival rate of " + lowAverage + "%.";
+
+    //return percentage of survival
+    return ret;
   }
 
 
 /*
-  public static double mostExpensiveTicketSurvival(){
-    //method that finds the people with the most expensive tickets and sees if they survived
-    //split up by top half of expensive and bottom half and compare? or maybe top, middle, bottom and compare
-
-
-    //return percentage of survival
-  }
-
-  public static double genderSurvival(){
+  public static double genderSurvival() throws FileNotFoundException{
     //method that determines whether there is a trend between gender and genderSurvival
     //while loop that iterates through each person, adds 1 to female if F survived and opp for men
     //when iterating through genders, add one to female one to male (total f passengers and m)
