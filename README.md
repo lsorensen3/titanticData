@@ -29,8 +29,9 @@ Another major challenge in answering my questions was dealing with empty element
 ## Results and Conclusion
 
 Here is what I found.
-1. What does data show/what are takeaways?
+1. What does data show/what are takeaways
+
     The data researched showed that there was, in fact, a trend between ticket fare and survival rates. The average ticket price used was 30% of the most expensive ticket price (using less than the average for ticket price helps to ignore the pull of outliers (expensive tickets) on the mean). The total amount of passengers that paid more than the average ticket price ($153.69876) was 42 out of 1310. 29 of those 42 passengers survived, providing a higher class survival rate of 69.05%. The total amount of passengers that paid less than the average ticket price was 1266 out of 1310. 471 of those 1266 passengers survived (37.2% survival rate). It can be argued from the presented data that there was a trend between class and survival, but since the amount of people who paid more for tickets varies greatly from those who didn't, a definitive conclusion cannot be made.
-    
+
     The data research additionally showed that there is, in fact, a trend between gender and survival rates. While this can be assumed, due to women and children having had priority access to life rafts, I wanted to find clear evidence. Of the 466 females aboard the Titanic, 339 survived. The females had a 72.75% survival rate. Of the 843 males abroad the Titanic, only 161 survived. The male survival rate was far lower than that of the females, at only 19.1% survival. It is evident from the statistics obtained that females were far more likely to survive the sinking of the Titanic than males.
 2. What are some related or additional questions that you would like to explore granted more time/resources?
