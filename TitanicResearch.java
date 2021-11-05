@@ -23,6 +23,8 @@ public class TitanicResearch{
 
     System.out.println(mostExpensiveTicketSurvival());
 
+    System.out.println(genderSurvival());
+
   }
 
   public static ArrayList<ArrayList<String>> allData(File pathname) throws FileNotFoundException{
@@ -321,6 +323,7 @@ public class TitanicResearch{
       currentPrice = Double.parseDouble(currentPriceString);
 
       //if price is equal to middle, disregard in count
+      //in titanic there is no price equal to middle, but just to be safe (because doesn't work for either side)
       if(currentPrice == middle){
         continue;
       }
@@ -347,24 +350,77 @@ public class TitanicResearch{
 
     }
 
+    //find survival percentage rates for each side
     double highAverage = (highSurvive/highTotal) * 100.0;
     double lowAverage = (lowSurvive/lowTotal) * 100.0;
 
-    String ret = "More expensive tickets have a survival rate of " + highAverage + "%, ";
-    ret = ret + "while less expensive tickets have a survival rate of " + lowAverage + "%.";
+    //String to return percentages cut to two decimal points
+    String ret = "Expensive ticket survival rate: " + String.format("%.2f",highAverage) + "%.\n";
+    ret = ret + "Less expensive ticket survival rate: " + String.format("%.2f",lowAverage) + "%.";
 
-    //return percentage of survival
     return ret;
   }
 
 
-/*
-  public static double genderSurvival() throws FileNotFoundException{
+
+  public static String genderSurvival() throws FileNotFoundException{
     //method that determines whether there is a trend between gender and genderSurvival
     //while loop that iterates through each person, adds 1 to female if F survived and opp for men
     //when iterating through genders, add one to female one to male (total f passengers and m)
     //compares the female and male survivals (compare female/male survival percentages)
+    File f = new File("titanic3.csv");
+    ArrayList<ArrayList<String>> dataSet = allData(f);
+    int genderIndex = findIndex("sex");
+    int surviveIndex = findIndex("survived");
+
+    String gender = "";
+    String surviveString = "";
+    int currentSurvive = 0;
+
+    double femaleTotal = 0.0;
+    int femaleSurvive = 0;
+
+    double maleTotal = 0.0;
+    int maleSurvive = 0;
+
+
+
+    for(int row = 1; row < dataSet.size(); row++){
+      gender = dataSet.get(row).get(genderIndex);
+      surviveString = dataSet.get(row).get(surviveIndex);
+
+      //if gender or survival is not listed, skip the line
+      if(gender.equals("") || surviveString.equals("")){
+        continue;
+      }
+      currentSurvive = Integer.valueOf(surviveString);
+
+      if(gender.equals("\"female\"")){
+        femaleTotal++;
+
+        if(currentSurvive == 1){
+          femaleSurvive++;
+        }
+      } else {
+        maleTotal++;
+
+        if(currentSurvive == 1){
+          maleSurvive++;
+        }
+      }
+
+    }
+
+    //find percentages of survival rates per gender
+    double femalePercent = (femaleSurvive/femaleTotal) * 100.0;
+    double malePercent = (maleSurvive/maleTotal) * 100.0;
+
+    //String to return percentages cut to two decimal points
+    String ret = "Female survival rate is " + String.format("%.2f",femalePercent) + "%.\n";
+    ret = ret + "Male survival rate is " + String.format("%.2f",malePercent) + "%.";
+
+    return ret;
+
   }
 
-*/
 }
