@@ -37,6 +37,7 @@ Here is what I found.
 
 
 2. What are some related or additional questions that you would like to explore granted more time/resources?
-    Granted more time, I would like to further my research on possible trends between wealth and survival aboard the Titanic. I believe that it is more likely for more people who paid more for their tickets to have survived than those who paid less, but I would need to do further research in order to determine this.
+
+    If I had more time, I would like to further my research on possible trends between wealth and survival aboard the Titanic. I believe that it is more likely for more people who paid more for their tickets to have survived than those who paid less, but I would need to do further research in order to determine this.
 
     Another question that I would like to answer would be to look at passenger families, and how many people per family present on the Titanic survived. A subquestion of this would be to find the percentage of families that lost each member during the sinking. The data set has information for number of sibling/spouses aboard (sibsp), and number of children/parents aboard (parch). It would be interesting to see the comparison between familial death, which would lead to more questions. For instance, was the family death due to not wanting to be separated? Did more children survive than parents, displaying a possible trend in which parents saved their children rather than themselves? I believe that these questions would be extremely interesting to further research, and would have definitely looked into it had I been granted more time with the project.
