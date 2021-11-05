@@ -14,8 +14,9 @@ The questions that I attempted to answer with my code were the following:
 1. Dataset:
 
     Data obtained from https://hbiostat.org/data courtesy of the Vanderbilt University Department of Biostatistics.
+
     The data is free to use for those who cite it. Majority of the data in the dataset was found in _Encyclopedia Titanica._ The data set only contains information about passengers, not crew members, which is a slight setback. However, I am researching information about passengers, so it should not be an issue.
-    
+
 
 2. Process:
 
