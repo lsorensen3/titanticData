@@ -16,7 +16,10 @@ The questions that I attempted to answer with my code were:
 
 Here are my Methods.
 1. Dataset: describe how data was generated (what i know), who owns it, why am i able to use it
-2. Process: self explanatory
+2. Process: self explanatory - How did you go about answering your questions? What specific pieces of
+information did you need from your data set and how did you combine data to arrive at
+your answer?
+Process: I first started with creating additional methods that would help me with the necessary methods that worked to answer my questions. One of the most useful methods that I created allowed me to take all the data from my csv file and turn it into a String ArrayList of ArrayLists. Putting all the data into an ArrayList made it a lot easier to access necessary data, especially since I am more familiar with the syntax for ArrayLists and its methods. Another crucial method was my method findIndex(String find). findIndex has a String parameter that takes in the key (ex. age, name, etc.). The method returns the index in the ArrayList of data that would have the information. This method was not necessary since the order of my data set will not change, but it is important to include for the what-if scenarios and to ensure full coverage.
 3. Challenges: having to disregard empty strings/tokens, account for quotes in tokens, cut to two decimals
 
 ## Results and Conclusion
