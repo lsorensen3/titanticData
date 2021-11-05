@@ -13,14 +13,14 @@ The questions that I attempted to answer with my code were the following:
 
 1. Dataset:
 
-    Data obtained from https://hbiostat.org/data courtesy of the Vanderbilt University Department of Biostatistics.
+    * Data obtained from https://hbiostat.org/data courtesy of the Vanderbilt University Department of Biostatistics.
 
-    The data is free to use for those who cite it. Majority of the data in the dataset was found in _Encyclopedia Titanica._ The data set only contains information about passengers, not crew members, which is a slight setback. However, I am researching information about passengers, so it should not be an issue.
+    * The data is free to use for those who cite it. Majority of the data in the dataset was found in _Encyclopedia Titanica._ The data set only contains information about passengers, not crew members, which is a slight setback. However, I am researching information about passengers, so it should not be an issue.
 
 
 2. Process:
 
-    I first started with creating additional methods that would help me with the necessary methods that worked to answer my questions. One of the most useful methods that I created allowed me to take all the data from my csv file and turn it into a String ArrayList of ArrayLists. Putting all the data into an ArrayList made it a lot easier to access necessary data, especially since I am more familiar with the syntax for ArrayLists and its methods. Another crucial method was my method
+    * I first started with creating additional methods that would help me with the necessary methods that worked to answer my questions. One of the most useful methods that I created allowed me to take all the data from my csv file and turn it into a String ArrayList of ArrayLists. Putting all the data into an ArrayList made it a lot easier to access necessary data, especially since I am more familiar with the syntax for ArrayLists and its methods. Another crucial method was my method
     ```
     findIndex(String find)
     ```
@@ -29,7 +29,7 @@ The questions that I attempted to answer with my code were the following:
 
 3. Challenges:
 
-    The biggest challenge that I faced was figuring out a way to get all of the csv data in an ArrayList to optimize readability and simplify the means of obtaining said data. I was originally going to use the
+    * The biggest challenge that I faced was figuring out a way to get all of the csv data in an ArrayList to optimize readability and simplify the means of obtaining said data. I was originally going to use the
     ```
     .split()
     ```
@@ -38,7 +38,7 @@ The questions that I attempted to answer with my code were the following:
       String.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
     ```
 
-    Another major challenge in answering my questions was dealing with empty elements in the data ArrayList. While this may seem like a minor issue, it was fairly time consuming to debug as it took a long time to figure out what the real issue was. Once I found out why my code wasn't working, I just needed to include a simple if/else statement that disregarded lines in the dataset that did not include a real value for the specific token.
+    * Another major challenge in answering my questions was dealing with empty elements in the data ArrayList. While this may seem like a minor issue, it was fairly time consuming to debug as it took a long time to figure out what the real issue was. Once I found out why my code wasn't working, I just needed to include a simple if/else statement that disregarded lines in the dataset that did not include a real value for the specific token.
 
 ## Results and Conclusion
 
