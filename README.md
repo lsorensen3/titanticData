@@ -4,15 +4,15 @@
 ## Introduction
 I have always been fascinated with history, the Titanic included. I was excited when I found this data source on the list and knew that it would be a great option to study (my other final choice was fossils, once again, history). I somewhat assumed the general answers to my questions, but I thought it would be fun to test myself by creating the code that would help me find the exact and statistically correct answers.
 
-The questions that I attempted to answer with my code were:
+The questions that I attempted to answer with my code were the following:
   1. Is there a trend between ticket fare and survival? If so, what are the different survival rates for more expensive tickets vs. less expensive tickets?
   2. Is there a trend between gender and survival? If so, what are the exact survival rates for females and males?
 
 
 ## Methods
 
-Here are my Methods.
-1. Dataset: describe how data was generated (what i know), who owns it, why am i able to use it
+1. Dataset:
+
     Data obtained from https://hbiostat.org/data courtesy of the Vanderbilt University Department of Biostatistics.
     The data is free to use for those who cite it. Majority of the data in the dataset was found in _Encyclopedia Titanica._ The data set only contains information about passengers, not crew members, which is a slight setback. However, I am researching information about passengers, so it should not be an issue.
 
