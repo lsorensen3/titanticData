@@ -29,7 +29,7 @@ The questions that I attempted to answer with my code were the following:
 ## Results and Conclusion
 
 Here is what I found.
-1. What does data show/what are takeaways
+1. What did the data show? What are your takeaways?
 
     The data researched showed that there was, in fact, a trend between ticket fare and survival rates. The average ticket price used was 30% of the most expensive ticket price (using less than the average for ticket price helps to ignore the pull of outliers (expensive tickets) on the mean). The total amount of passengers that paid more than the average ticket price was 42 out of 1310. 29 of those 42 passengers survived, providing a higher class survival rate of 69.05%. The total amount of passengers that paid less than the average ticket price was 1266 out of 1310. 471 of those 1266 passengers survived (37.2% survival rate). It can be argued from the presented data that there was a trend between class and survival, but since the amount of people who paid more for tickets varies greatly from those who didn't, a definitive conclusion cannot be made.
 
