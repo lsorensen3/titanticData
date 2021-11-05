@@ -6,6 +6,10 @@ public class TitanicResearch{
     File f = new File("titanic3.csv");
     allData(f);
 
+    System.out.println(mostExpensiveTicketSurvival());
+    System.out.println(findHighestPrice());
+    System.out.println(genderSurvival());
+
   }
 
   public static ArrayList<ArrayList<String>> allData(File pathname) throws FileNotFoundException{
@@ -135,7 +139,8 @@ public class TitanicResearch{
     int priceIndex = findIndex("fare");
     int surviveIndex = findIndex("survived");
 
-    double middle = (findLowestPrice() + findHighestPrice()) /2;
+    double middle = (findLowestPrice() + findHighestPrice()) *.3;
+    System.out.println(middle);
     String currentPriceString = "";
     double currentPrice = 0.0;
 
@@ -166,6 +171,7 @@ public class TitanicResearch{
 
       //if the price is high, increase highTotal and increase highSurvive (if true)
       if(currentPrice > middle){
+        //System.out.println(row);
         highTotal ++;
         currentSurviveString = dataSet.get(row).get(surviveIndex);
         currentSurvive = Integer.valueOf(currentSurviveString);
@@ -185,6 +191,10 @@ public class TitanicResearch{
       }
 
     }
+
+    System.out.println("high total: " + highTotal + " high survive: " + highSurvive);
+    System.out.println("low total: " + lowTotal + " low survive: " + lowSurvive);
+
 
     //find survival percentage rates for each side
     double highAverage = (highSurvive/highTotal) * 100.0;
@@ -248,6 +258,9 @@ public class TitanicResearch{
     }
 
     //find percentages of survival rates per gender
+    //System.out.println("f total: " + femaleTotal + " f surv: " + femaleSurvive);
+    //System.out.println("m total: " + maleTotal + " m surv: " + maleSurvive);
+
     double femalePercent = (femaleSurvive/femaleTotal) * 100.0;
     double malePercent = (maleSurvive/maleTotal) * 100.0;
 
