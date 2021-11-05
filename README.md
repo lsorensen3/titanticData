@@ -21,7 +21,8 @@ The questions that I attempted to answer with my code were the following:
 2. Process:
 
     * I first started with creating additional methods that would help me with the necessary methods that worked to answer my questions. One of the most useful methods that I created allowed me to take all the data from my csv file and turn it into a String ArrayList of ArrayLists. Putting all the data into an ArrayList made it a lot easier to access necessary data, especially since I am more familiar with the syntax for ArrayLists and its methods. Another crucial method was my method
-    ``` findIndex(String find)
+    ```
+    findIndex(String find)
     ```
     The find index method has a String parameter that takes in a String that is one of the keys in the first line of the csv (ex. age, name, etc.). The method returns the index in the ArrayList of data that would have the information. This method was not necessary since the order of my data set will not change, but it is important to include for what-if scenarios and to ensure that the code will work with or without knowing what index the keys are at beforehand. I found that some of the other helper methods I created, such as findName and findGender, were not necessary for my code.
 
