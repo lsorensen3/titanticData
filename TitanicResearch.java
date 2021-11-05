@@ -6,17 +6,6 @@ public class TitanicResearch{
     File f = new File("titanic3.csv");
     allData(f);
 
-    //testing methods:
-    System.out.println(findIndex("name"));
-
-    System.out.println(findHighestPrice()); //should be 512.3292
-
-    System.out.println(findLowestPrice()); //should be 0.0
-
-    System.out.println(mostExpensiveTicketSurvival());
-
-    System.out.println(genderSurvival());
-
   }
 
   public static ArrayList<ArrayList<String>> allData(File pathname) throws FileNotFoundException{
