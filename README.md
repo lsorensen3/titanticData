@@ -18,13 +18,13 @@ The questions that I attempted to answer with my code were the following:
 
 2. Process:
 
-    * I first started with creating additional methods that would help me with the necessary methods that worked to answer my questions. One of the most useful methods that I created allowed me to take all the data from my csv file and turn it into a String ArrayList of ArrayLists. Putting all the data into an ArrayList made it a lot easier to access necessary data, especially since I am more familiar with the syntax for ArrayLists and its methods. Another crucial method was my method ```
+    * I first started with creating additional methods that would help me with the necessary methods that worked to answer my questions. One of the most useful methods that I created allowed me to take all the data from my csv file and turn it into a String ArrayList of ArrayLists. Putting all the data into an ArrayList made it a lot easier to access necessary data, especially since I am more familiar with the syntax for ArrayLists and its methods. Another crucial method was my method ```java
     findIndex(String find)```
     . The find index method has a String parameter that takes in the key (ex. age, name, etc.). The method returns the index in the ArrayList of data that would have the information. This method was not necessary since the order of my data set will not change, but it is important to include for the what-if scenarios and to ensure full coverage. I found that some of the other helper methods I created, such as findName and findGender, were not necessary for my code.
 
 3. Challenges:
 
-    * The biggest challenge that I faced was figuring out a way to get all of the csv data in an ArrayList to optimize readability and simplify the means of obtaining said data. I was originally going to use the .split() method in order to turn each line of my csv into an array, but since some of my data tokens had necessary commas in them, the ```
+    * The biggest challenge that I faced was figuring out a way to get all of the csv data in an ArrayList to optimize readability and simplify the means of obtaining said data. I was originally going to use the .split() method in order to turn each line of my csv into an array, but since some of my data tokens had necessary commas in them, the ```java
     .split()```
      method on its own would not work. I then tried to put all of the information into an ArrayList using a while loop, but this proved difficult since each line of a csv has a hidden \n (since it goes on to the next line). I presented my difficulties to my teacher, who then showed me a line of code that would work around this issue ```java
     (String.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
